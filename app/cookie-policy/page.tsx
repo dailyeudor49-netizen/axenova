@@ -13,7 +13,7 @@ export default function CookiePolicyPage() {
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
           Cookie Policy
         </h1>
-        <p className="text-gray-600 mb-8">Last updated: November 2024</p>
+        <p className="text-gray-600 mb-8">Last updated: 26 November 2025</p>
 
         <div className="prose prose-gray max-w-none">
           <section className="mb-8">
@@ -126,6 +126,12 @@ export default function CookiePolicyPage() {
             </p>
             <p className="text-gray-600">
               <strong>Email:</strong> info@axenovalab.com
+            </p>
+            <p className="text-gray-600 mt-2">
+              <strong>Axenova Lab Ltd</strong><br />
+              71-75 Shelton Street, Covent Garden<br />
+              London, WC2H 9JQ<br />
+              United Kingdom
             </p>
           </section>
         </div>

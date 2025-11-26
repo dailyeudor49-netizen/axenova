@@ -13,7 +13,7 @@ export default function TermsOfServicePage() {
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
           Terms of Service
         </h1>
-        <p className="text-gray-600 mb-8">Last updated: November 2024</p>
+        <p className="text-gray-600 mb-8">Last updated: 26 November 2025</p>
 
         <div className="prose prose-gray max-w-none">
           <section className="mb-8">
@@ -24,6 +24,11 @@ export default function TermsOfServicePage() {
               By accessing and using the Axenova Lab website, you accept and agree
               to be bound by these Terms of Service. If you do not agree to these
               terms, please do not use our website.
+            </p>
+            <p className="text-gray-600 mb-4">
+              <strong>Axenova Lab Ltd</strong><br />
+              Registered Office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, United Kingdom<br />
+              VAT Number: GB 847 2936 18
             </p>
           </section>
 
@@ -59,7 +64,7 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-gray-600 mb-4">
               All content on this website, including text, graphics, logos, and
-              images, is the property of Axenova Lab or its content suppliers and
+              images, is the property of Axenova Lab Ltd or its content suppliers and
               is protected by intellectual property laws. You may not reproduce,
               distribute, or create derivative works from this content without
               our express written permission.
@@ -86,7 +91,7 @@ export default function TermsOfServicePage() {
               6. Limitation of Liability
             </h2>
             <p className="text-gray-600 mb-4">
-              To the fullest extent permitted by law, Axenova Lab shall not be
+              To the fullest extent permitted by law, Axenova Lab Ltd shall not be
               liable for any indirect, incidental, special, consequential, or
               punitive damages arising from your use of or inability to use this
               website or our services.
@@ -135,8 +140,8 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-gray-600 mb-4">
               These Terms of Service shall be governed by and construed in
-              accordance with applicable laws. Any disputes arising from these
-              terms shall be resolved through appropriate legal channels.
+              accordance with the laws of England and Wales. Any disputes arising from these
+              terms shall be subject to the exclusive jurisdiction of the courts of England and Wales.
             </p>
           </section>
 
@@ -150,6 +155,12 @@ export default function TermsOfServicePage() {
             </p>
             <p className="text-gray-600">
               <strong>Email:</strong> info@axenovalab.com
+            </p>
+            <p className="text-gray-600 mt-2">
+              <strong>Axenova Lab Ltd</strong><br />
+              71-75 Shelton Street, Covent Garden<br />
+              London, WC2H 9JQ<br />
+              United Kingdom
             </p>
           </section>
         </div>

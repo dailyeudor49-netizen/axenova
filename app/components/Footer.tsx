@@ -43,9 +43,12 @@ export default function Footer() {
               We help companies of all sizes achieve their goals through
               data-driven strategies and creative solutions.
             </p>
-            <p className="text-sm text-gray-500">
-              Building success, one strategy at a time.
-            </p>
+            <div className="text-xs text-gray-500 space-y-1">
+              <p>Axenova Lab Ltd</p>
+              <p>71-75 Shelton Street, Covent Garden</p>
+              <p>London, WC2H 9JQ, UK</p>
+              <p>VAT: GB 847 2936 18</p>
+            </div>
           </div>
 
           {/* Services Column */}
@@ -104,10 +107,10 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500">
-              &copy; {currentYear} Axenova Lab. All rights reserved.
+              &copy; {currentYear} Axenova Lab Ltd. All rights reserved.
             </p>
             <p className="text-sm text-gray-500">
-              Marketing Consulting Services
+              info@axenovalab.com
             </p>
           </div>
         </div>

@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
           Privacy Policy
         </h1>
-        <p className="text-gray-600 mb-8">Last updated: November 2024</p>
+        <p className="text-gray-600 mb-8">Last updated: 26 November 2025</p>
 
         <div className="prose prose-gray max-w-none">
           <section className="mb-8">
@@ -21,9 +21,13 @@ export default function PrivacyPolicyPage() {
               1. Introduction
             </h2>
             <p className="text-gray-600 mb-4">
-              Axenova Lab (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is
+              Axenova Lab Ltd (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is
               committed to protecting it. This Privacy Policy explains our
               practices regarding information when you visit our website.
+            </p>
+            <p className="text-gray-600 mb-4">
+              <strong>Registered Office:</strong> 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, United Kingdom<br />
+              <strong>VAT Number:</strong> GB 847 2936 18
             </p>
           </section>
 
@@ -48,7 +52,7 @@ export default function PrivacyPolicyPage() {
               3. Contact Information
             </h2>
             <p className="text-gray-600 mb-4">
-              If you choose to contact us via the email address or phone number
+              If you choose to contact us via the email address
               provided on our website, we will only use the information you
               provide to respond to your inquiry. This information is not stored
               in any database or used for marketing purposes unless you
@@ -112,7 +116,7 @@ export default function PrivacyPolicyPage() {
             <p className="text-gray-600 mb-4">
               Since we do not collect personal data through this website, there
               is no personal information for us to provide, modify, or delete. If
-              you have contacted us directly via email or phone and wish to have
+              you have contacted us directly via email and wish to have
               any correspondence deleted, please contact us and we will
               accommodate your request.
             </p>
@@ -128,6 +132,12 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className="text-gray-600">
               <strong>Email:</strong> info@axenovalab.com
+            </p>
+            <p className="text-gray-600 mt-2">
+              <strong>Axenova Lab Ltd</strong><br />
+              71-75 Shelton Street, Covent Garden<br />
+              London, WC2H 9JQ<br />
+              United Kingdom
             </p>
           </section>
         </div>
