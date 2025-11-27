@@ -2,25 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
+    { href: "/products", label: "Products" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
@@ -33,15 +24,9 @@ export default function Header() {
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
-          : "bg-white"
-      }`}
-    >
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <Link href="/" className="group">
             <Image
@@ -49,7 +34,7 @@ export default function Header() {
               alt="Axenova Lab"
               width={200}
               height={200}
-              className="h-10 w-auto group-hover:scale-105 transition-transform"
+              className="h-14 w-auto group-hover:scale-105 transition-transform"
               unoptimized
             />
           </Link>
@@ -62,14 +47,14 @@ export default function Header() {
                 href={link.href}
                 className={`relative px-4 py-2 font-medium transition-colors ${
                   isActive(link.href)
-                    ? "text-blue-600"
-                    : "text-gray-600 hover:text-blue-600"
+                    ? "text-indigo-600"
+                    : "text-gray-600 hover:text-indigo-600"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute bottom-0 left-[10%] h-0.5 bg-blue-600 transition-all duration-300 ${
-                    isActive(link.href) ? "w-4/5" : "w-0 left-1/2 group-hover:w-4/5 group-hover:left-[10%]"
+                  className={`absolute bottom-0 left-[10%] h-0.5 bg-indigo-600 transition-all duration-300 ${
+                    isActive(link.href) ? "w-4/5" : "w-0 left-1/2"
                   }`}
                 ></span>
               </Link>
@@ -79,7 +64,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
+            className="md:hidden p-2 text-gray-600 hover:text-indigo-600 transition-colors"
             aria-label="Toggle menu"
           >
             <svg
@@ -122,8 +107,8 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-4 py-3 font-medium transition-colors rounded-lg ${
                     isActive(link.href)
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                      ? "text-indigo-600 bg-indigo-50"
+                      : "text-gray-600 hover:text-indigo-600 hover:bg-indigo-50"
                   }`}
                 >
                   {link.label}

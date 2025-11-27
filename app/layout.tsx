@@ -11,36 +11,28 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Axenova Lab - Marketing Consulting Agency",
+    default: "Axenova Lab - Wholesale Corporate Gifts & Promotional Items",
     template: "%s | Axenova Lab",
   },
   description:
-    "Axenova Lab is a marketing consulting agency helping businesses grow through strategic digital marketing, brand strategy, advertising, and business consulting services.",
+    "Axenova Lab is your wholesale partner for premium corporate gifts, promotional items, and branded merchandise. Quality products for businesses worldwide.",
   keywords: [
-    "marketing consulting",
-    "digital marketing",
-    "brand strategy",
-    "advertising agency",
-    "business consulting",
-    "SEO services",
-    "PPC advertising",
-    "social media marketing",
+    "wholesale corporate gifts",
+    "promotional items",
+    "branded merchandise",
+    "business gifts",
+    "corporate gadgets",
+    "bulk promotional products",
+    "B2B gifts",
   ],
-  authors: [{ name: "Axenova Lab" }],
+  authors: [{ name: "Axenova Lab Ltd" }],
   openGraph: {
-    title: "Axenova Lab - Marketing Consulting Agency",
+    title: "Axenova Lab - Wholesale Corporate Gifts & Promotional Items",
     description:
-      "Strategic marketing solutions to help your business grow. Digital marketing, brand strategy, advertising, and consulting services.",
-    url: "https://axenovalab.com",
+      "Premium corporate gifts and promotional items at wholesale prices. Quality merchandise for businesses worldwide.",
     siteName: "Axenova Lab",
     type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Axenova Lab - Marketing Consulting Agency",
-    description:
-      "Strategic marketing solutions to help your business grow. Digital marketing, brand strategy, advertising, and consulting services.",
+    locale: "en_GB",
   },
   robots: {
     index: true,

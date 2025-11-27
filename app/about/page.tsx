@@ -1,143 +1,130 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us - Axenova Lab",
+  title: "About Us",
   description:
-    "Learn about Axenova Lab, a marketing consulting agency dedicated to helping businesses grow through strategic marketing and advertising solutions.",
+    "Learn about Axenova Lab, your wholesale partner for premium corporate gifts and promotional items. Quality products for businesses worldwide.",
 };
 
 export default function AboutPage() {
-  const team = [
-    {
-      name: "Marcus Chen",
-      role: "Founder & CEO",
-      bio: "With over 15 years in digital marketing and brand strategy, Marcus founded Axenova Lab to help businesses navigate the evolving marketing landscape.",
-    },
-    {
-      name: "Sarah Mitchell",
-      role: "Head of Digital Marketing",
-      bio: "Sarah brings a decade of experience in SEO, PPC, and social media marketing, leading our digital strategy initiatives.",
-    },
-    {
-      name: "David Park",
-      role: "Creative Director",
-      bio: "David oversees all creative projects, ensuring brand consistency and compelling visual storytelling for our clients.",
-    },
-    {
-      name: "Elena Rodriguez",
-      role: "Business Development Manager",
-      bio: "Elena connects businesses with the right solutions, understanding their unique challenges and growth objectives.",
-    },
-  ];
-
   const values = [
     {
-      title: "Integrity",
+      title: "Quality First",
       description:
-        "We believe in honest, transparent relationships with our clients. No hidden fees, no misleading promises—just straightforward communication and realistic expectations.",
+        "Every product in our catalogue is carefully selected and quality-tested. We work only with trusted manufacturers to ensure consistent excellence.",
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+      ),
     },
     {
-      title: "Results-Driven",
+      title: "Competitive Pricing",
       description:
-        "Every strategy we develop is designed with measurable outcomes in mind. We focus on what works and continuously optimize for better performance.",
+        "Direct relationships with manufacturers allow us to offer wholesale prices that maximise your profit margins on every order.",
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
     },
     {
-      title: "Collaboration",
+      title: "Global Delivery",
       description:
-        "We see ourselves as an extension of your team. Your success is our success, and we work closely with you at every step of the journey.",
+        "We ship to countries worldwide in 24/48 hours. Fast, reliable logistics with tracking on every order, wherever you are.",
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
     },
     {
-      title: "Innovation",
+      title: "Customer Focus",
       description:
-        "The marketing landscape is always changing. We stay ahead of trends and adapt our approaches to ensure your business remains competitive.",
+        "Dedicated support team to help you find the perfect products. We build lasting partnerships with our clients.",
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
     },
   ];
 
   const milestones = [
-    { year: "2014", event: "Axenova Lab founded as a small consulting firm" },
-    { year: "2016", event: "Expanded services to include digital marketing" },
-    { year: "2018", event: "Reached 100+ successful client projects" },
-    { year: "2020", event: "Grew team to 15+ marketing professionals" },
-    { year: "2022", event: "Launched comprehensive advertising services" },
-    { year: "2024", event: "Celebrating 10 years of helping businesses grow" },
+    { year: "2012", event: "Founded in London as a corporate gifts supplier" },
+    { year: "2014", event: "Expanded warehouse to 15,000 sq ft" },
+    { year: "2016", event: "Launched European distribution network" },
+    { year: "2018", event: "Reached 500+ active business partners" },
+    { year: "2021", event: "Introduced eco-friendly product line" },
+    { year: "2024", event: "Over 8,000 products in catalogue" },
   ];
 
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-white py-20 md:py-28">
+      <section className="bg-gradient-to-r from-slate-900 to-indigo-900 text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                About Axenova Lab
-              </h1>
-              <p className="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed">
-                We are a team of marketing professionals passionate about helping
-                businesses achieve their growth potential through strategic
-                planning, creative solutions, and data-driven decision making.
-              </p>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
-                alt="Marketing team working together"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
-              />
-            </div>
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              About Axenova Lab
+            </h1>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Since 2012, we&apos;ve been helping businesses worldwide source premium
+              corporate gifts and promotional items. Our mission is simple: quality
+              products, competitive prices, and exceptional service.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="py-20 md:py-28">
+      {/* Story Section */}
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Our Story
+              <span className="text-indigo-600 font-medium">Our Story</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
+                Built on Trust and Quality
               </h2>
-              <div className="mt-6 space-y-4 text-gray-600 leading-relaxed">
+              <div className="space-y-4 text-gray-600">
                 <p>
-                  Axenova Lab was founded in 2014 with a simple mission: to
-                  provide businesses with honest, effective marketing guidance
-                  that delivers real results. What started as a small consulting
-                  practice has grown into a full-service marketing agency
-                  serving clients across various industries.
+                  Axenova Lab was founded with a clear vision: make premium corporate
+                  gifts accessible to businesses of all sizes through fair wholesale
+                  pricing and reliable service.
                 </p>
                 <p>
-                  Our founder, Marcus Chen, recognized that many businesses
-                  struggle to navigate the complex world of modern marketing. Too
-                  often, companies invest in strategies that don&apos;t align with
-                  their goals or work with agencies that overpromise and
-                  underdeliver.
+                  What started as a small operation in London has grown into a trusted
+                  partner for hundreds of businesses across the globe. Our growth has
+                  been driven by one principle: treat every customer the way we would
+                  want to be treated.
                 </p>
                 <p>
-                  At Axenova Lab, we take a different approach. We start by
-                  understanding your business, your market, and your objectives.
-                  Then we develop customized strategies that make sense for your
-                  specific situation—no cookie-cutter solutions or one-size-fits-all
-                  packages.
+                  Today, our catalogue includes over 8,000 products, from drinkware
+                  and bags to executive gifts and eco-friendly items. But our commitment
+                  remains the same: quality products, honest pricing, and worldwide
+                  delivery in 24/48 hours.
                 </p>
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                Our Journey
-              </h3>
-              <div className="space-y-4">
-                {milestones.map((milestone, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex-shrink-0 w-16 text-blue-600 font-semibold">
-                      {milestone.year}
-                    </div>
-                    <div className="text-gray-600">{milestone.event}</div>
-                  </div>
-                ))}
+            <div className="bg-gradient-to-br from-slate-100 to-indigo-50 rounded-3xl p-8 md:p-12">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+                  <div className="text-4xl font-bold text-indigo-600">12+</div>
+                  <div className="text-sm text-gray-600 mt-1">Years in Business</div>
+                </div>
+                <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+                  <div className="text-4xl font-bold text-indigo-600">600+</div>
+                  <div className="text-sm text-gray-600 mt-1">Happy Clients</div>
+                </div>
+                <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+                  <div className="text-4xl font-bold text-indigo-600">8,000+</div>
+                  <div className="text-sm text-gray-600 mt-1">Products</div>
+                </div>
+                <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+                  <div className="text-4xl font-bold text-indigo-600">50+</div>
+                  <div className="text-sm text-gray-600 mt-1">Countries Served</div>
+                </div>
               </div>
             </div>
           </div>
@@ -145,23 +132,28 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 md:py-28 bg-gray-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Our Values
+          <div className="text-center mb-12">
+            <span className="text-indigo-600 font-medium">Our Values</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+              What Drives Us
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              The principles that guide everything we do at Axenova Lab.
-            </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-sm">
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 mb-4">
+                  {value.icon}
+                </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -170,59 +162,68 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 md:py-28">
+      {/* Timeline Section */}
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Meet Our Team
+          <div className="text-center mb-12">
+            <span className="text-indigo-600 font-medium">Our Journey</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+              Milestones
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Experienced professionals dedicated to your business success.
-            </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gray-100 rounded-xl p-6 text-center"
-              >
-                <div className="w-20 h-20 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl font-semibold text-blue-600">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </span>
+
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-6">
+              {milestones.map((milestone, index) => (
+                <div
+                  key={index}
+                  className="flex gap-6 items-start"
+                >
+                  <div className="flex-shrink-0 w-20 text-right">
+                    <span className="text-indigo-600 font-bold text-lg">
+                      {milestone.year}
+                    </span>
+                  </div>
+                  <div className="flex-shrink-0 w-3 h-3 bg-indigo-500 rounded-full mt-2"></div>
+                  <div className="flex-1 pb-6 border-b border-gray-100 last:border-0">
+                    <p className="text-gray-700">{milestone.event}</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 text-sm mb-3">{member.role}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {member.bio}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-28 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Ready to Work Together?
+      <section className="bg-indigo-600 py-16 md:py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Ready to Partner with Us?
           </h2>
-          <p className="mt-4 text-lg text-blue-100 max-w-2xl mx-auto">
-            Let&apos;s discuss how we can help your business achieve its marketing
-            goals.
+          <p className="text-indigo-100 mb-8">
+            Join hundreds of businesses who trust Axenova Lab for their
+            corporate gifting needs. Quality products, competitive prices,
+            worldwide delivery.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center mt-8 px-8 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
           >
-            Contact Us
+            Get in Touch
+            <svg
+              className="ml-2 w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
           </Link>
         </div>
       </section>
