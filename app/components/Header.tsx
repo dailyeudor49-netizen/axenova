@@ -9,6 +9,32 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Nascondi header per le landing pages
+  const noHeaderRoutes = [
+    '/airwave',
+    '/airwave_hr',
+    '/airwave_hu',
+    '/airwave_sk',
+    '/besecurepro_pl',
+    '/besecureprovideocamere',
+    '/climateguardpro',
+    '/climateguardpro_czk',
+    '/climateguardpro_hr',
+    '/climateguardpro_hu',
+    '/climateguardpro_pl',
+    '/climateguardpro_sk',
+    '/superhub_pl',
+    '/ty-hr',
+    '/ty-hu',
+    '/ty-it',
+    '/ty-pl',
+    '/ty-sk',
+  ];
+
+  if (noHeaderRoutes.includes(pathname)) {
+    return null;
+  }
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/products", label: "Products" },
