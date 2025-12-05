@@ -88,14 +88,14 @@ export default function Home() {
     // Google Ads Pageview Tracking
     const gtagScript = document.createElement('script');
     gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17763167612';
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17761287196';
     document.head.appendChild(gtagScript);
 
     gtagScript.onload = () => {
       window.dataLayer = window.dataLayer || [];
       window.gtag = function() { window.dataLayer!.push(arguments); };
       window.gtag('js', new Date());
-      window.gtag('config', 'AW-17763167612');
+      window.gtag('config', 'AW-17761287196');
     };
 
     const interval = setInterval(() => {
