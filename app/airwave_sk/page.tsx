@@ -53,14 +53,14 @@ export default function LandingPage() {
     if (typeof window !== 'undefined') {
       const script = document.createElement('script');
       script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17763167612';
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17763228552';
       document.head.appendChild(script);
 
       script.onload = () => {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function() { window.dataLayer!.push(arguments); };
         window.gtag('js', new Date());
-        window.gtag('config', 'AW-17763167612');
+        window.gtag('config', 'AW-17763228552');
       };
     }
   }, []);
@@ -270,7 +270,7 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
-        window.location.href = '/ty-sk';
+        window.location.href = '/ty-airwave-sk';
       } else {
         alert('Chyba pri odoslaní objednávky. Skúste to prosím znova.');
         setIsSubmitting(false);
