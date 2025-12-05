@@ -1,6 +1,13 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  }
+}
 import { CountdownTimer } from './components/CountdownTimer';
 import { ComparisonTable } from './components/ComparisonTable';
 import { Reviews } from './components/Reviews';
@@ -78,6 +85,19 @@ export default function Home() {
   const [viewers, setViewers] = useState(38);
 
   useEffect(() => {
+    // Google Ads Pageview Tracking
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17763167612';
+    document.head.appendChild(gtagScript);
+
+    gtagScript.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function() { window.dataLayer!.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', 'AW-17763167612');
+    };
+
     const interval = setInterval(() => {
       setViewers(prev => Math.min(Math.max(prev + Math.floor(Math.random() * 5) - 2, 25), 90));
     }, 4000);

@@ -30,16 +30,16 @@ export default function ThankYouPage() {
       // Load gtag script
       const script = document.createElement('script');
       script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17746789099';
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17763167612';
       document.head.appendChild(script);
 
       script.onload = () => {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function() { window.dataLayer!.push(arguments); };
         window.gtag('js', new Date());
-        window.gtag('config', 'AW-17746789099');
+        window.gtag('config', 'AW-17763167612');
         window.gtag('event', 'conversion', {
-          'send_to': 'AW-17746789099/Qc-RCO-plcQbEOuFqo5C',
+          'send_to': 'AW-17763167612/FhzuCNHatswbEPzakZZC',
           'value': 1.0,
           'currency': 'EUR',
           'transaction_id': transactionId

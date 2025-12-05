@@ -2,6 +2,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  }
+}
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Zap, Star, CheckCircle, XCircle, ArrowRight, AlertTriangle, Clock, ShieldCheck, Eye, BellRing, PhoneCall, Radio, HelpCircle, ChevronDown, Package, BadgeCheck, Truck, Wifi, Signal, Battery, Cloud, Play, Pause, SkipBack, SkipForward, HardDrive, Camera, Smartphone, ScanFace, Maximize, Moon, Mic, Volume2, Factory, Square, Key, Link, Mail } from 'lucide-react';
 import { features, promoItems, whatHappensSteps, comparisonData, faqs, productImages, hardwareSpecs } from './constants';
@@ -59,6 +66,19 @@ export default function Home() {
   const [timeLeft, setTimeLeft] = useState({ m: 14, s: 59 });
 
   useEffect(() => {
+    // Google Ads Pageview Tracking
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17763167612';
+    document.head.appendChild(gtagScript);
+
+    gtagScript.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function() { window.dataLayer!.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', 'AW-17763167612');
+    };
+
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
