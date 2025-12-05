@@ -1,37 +1,7 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const pathname = usePathname();
-
-  // Nascondi footer per le landing pages
-  const noFooterRoutes = [
-    '/airwave',
-    '/airwave_hr',
-    '/airwave_hu',
-    '/airwave_sk',
-    '/besecurepro_pl',
-    '/besecureprovideocamere',
-    '/climateguardpro',
-    '/climateguardpro_czk',
-    '/climateguardpro_hr',
-    '/climateguardpro_hu',
-    '/climateguardpro_pl',
-    '/climateguardpro_sk',
-    '/superhub_pl',
-    '/ty-hr',
-    '/ty-hu',
-    '/ty-it',
-    '/ty-pl',
-    '/ty-sk',
-  ];
-
-  if (noFooterRoutes.includes(pathname)) {
-    return null;
-  }
 
   const footerLinks = {
     products: [
