@@ -13,6 +13,11 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [stockLeft, setStockLeft] = useState(9);
+  const [formData, setFormData] = useState({
+    name: '',
+    address: '',
+    phone: ''
+  });
 
   // Fake stock depletion logic for urgency
   useEffect(() => {
@@ -36,16 +41,46 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
     return () => window.removeEventListener('openOrderForm', handleOpenForm);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      setIsSubmitted(true);
-      if(typeof window !== 'undefined') {
+
+    try {
+      const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
+      const tmfpValue = tmfpInput?.value || '';
+
+      const response = await fetch('https://offers.supertrendaffiliateprogram.com/forms/api/submit/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          offer: '582',
+          lp: '582',
+          name: formData.name,
+          phone: formData.phone,
+          address: formData.address,
+          tmfp: tmfpValue,
+        }).toString(),
+      });
+
+      if (response.ok) {
+        if(typeof window !== 'undefined') {
           localStorage.setItem('lead_submitted_pl', 'true');
+          // Save form data for Enhanced Conversions
+          sessionStorage.setItem('ec_name', formData.name.trim());
+          sessionStorage.setItem('ec_phone', formData.phone.trim());
+          sessionStorage.setItem('ec_address', formData.address.trim());
+        }
+        window.location.href = '/ty-pl';
+      } else {
+        setIsLoading(false);
+        alert('Wystąpił błąd. Spróbuj ponownie.');
       }
-    }, 1500);
+    } catch {
+      setIsLoading(false);
+      alert('Wystąpił błąd. Spróbuj ponownie.');
+    }
   };
 
   if (isSubmitted) {
@@ -132,11 +167,14 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
 
         {/* Form Fields */}
         <form onSubmit={handleSubmit} className="space-y-3">
+            <input type="hidden" name="tmfp" />
             <div className="relative">
                 <label className="block text-sm font-bold text-[#1a2744] mb-1">Imię i Nazwisko</label>
                 <input
                     required
                     type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. Jan Kowalski"
                 />
@@ -146,6 +184,8 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
                 <input
                     required
                     type="text"
+                    value={formData.address}
+                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                     className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. ul. Marszałkowska 10/5, 00-001 Warszawa"
                 />
@@ -155,6 +195,8 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
                 <input
                     required
                     type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. +48 600 123 456"
                 />

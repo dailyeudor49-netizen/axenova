@@ -111,6 +111,10 @@ export default function SuperHubPL() {
       });
 
       if (response.ok) {
+        // Save form data for Enhanced Conversions
+        sessionStorage.setItem('ec_name', orderData.name.trim());
+        sessionStorage.setItem('ec_phone', orderData.phone.trim());
+        sessionStorage.setItem('ec_address', orderData.address.trim());
         window.location.href = '/ty-pl';
       } else {
         alert('Błąd podczas wysyłania zamówienia. Spróbuj ponownie.');

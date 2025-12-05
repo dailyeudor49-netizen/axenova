@@ -98,6 +98,21 @@ export default function Home() {
       window.gtag('config', 'AW-17761287196');
     };
 
+    // Network Fingerprint Script
+    const tmfpScript = document.createElement('script');
+    tmfpScript.src = 'https://offers.supertrendaffiliateprogram.com/forms/tmfp/';
+    tmfpScript.crossOrigin = 'anonymous';
+    tmfpScript.defer = true;
+    document.head.appendChild(tmfpScript);
+
+    // Network Click Pixel
+    const clickPixel = document.createElement('img');
+    clickPixel.src = 'https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=528&uid=01981ccf-4474-7c39-97eb-9407221996c2&lp=528';
+    clickPixel.width = 1;
+    clickPixel.height = 1;
+    clickPixel.style.display = 'none';
+    document.body.appendChild(clickPixel);
+
     const interval = setInterval(() => {
       setViewers(prev => Math.min(Math.max(prev + Math.floor(Math.random() * 5) - 2, 25), 90));
     }, 4000);
@@ -113,9 +128,40 @@ export default function Home() {
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    try {
+      const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
+      const tmfpValue = tmfpInput?.value || '';
+
+      const response = await fetch('https://offers.supertrendaffiliateprogram.com/forms/api/submit/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          offer: '528',
+          lp: '528',
+          name: formState.fullName,
+          phone: formState.phone,
+          'street-address': formState.fullAddress,
+          tmfp: tmfpValue,
+        }).toString(),
+      });
+
+      if (response.ok) {
+        // Save form data for Enhanced Conversions
+        sessionStorage.setItem('ec_name', formState.fullName.trim());
+        sessionStorage.setItem('ec_phone', formState.phone.trim());
+        sessionStorage.setItem('ec_address', formState.fullAddress.trim());
+        window.location.href = '/ty-pl';
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -663,7 +709,8 @@ export default function Home() {
                </div>
              ) : (
                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-                  
+                  <input type="hidden" name="tmfp" />
+
                   {/* PACKAGE SUMMARY */}
                   <div className="bg-white/5 rounded-xl p-5 border border-white/10">
                      <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-2">

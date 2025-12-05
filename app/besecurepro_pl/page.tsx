@@ -79,6 +79,21 @@ export default function Home() {
       window.gtag('config', 'AW-17761287196');
     };
 
+    // Network Fingerprint Script
+    const tmfpScript = document.createElement('script');
+    tmfpScript.src = 'https://offers.supertrendaffiliateprogram.com/forms/tmfp/';
+    tmfpScript.crossOrigin = 'anonymous';
+    tmfpScript.defer = true;
+    document.head.appendChild(tmfpScript);
+
+    // Network Click Pixel
+    const clickPixel = document.createElement('img');
+    clickPixel.src = 'https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=582&uid=01981ccf-4474-7c39-97eb-9407221996c2&lp=582';
+    clickPixel.width = 1;
+    clickPixel.height = 1;
+    clickPixel.style.display = 'none';
+    document.body.appendChild(clickPixel);
+
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);

@@ -9,6 +9,14 @@ declare global {
   }
 }
 
+// SHA-256 hash function for Enhanced Conversions
+async function sha256(message: string): Promise<string> {
+  const msgBuffer = new TextEncoder().encode(message.toLowerCase().trim());
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 export default function ThankYouPage() {
   const [orderCode, setOrderCode] = useState('');
 
@@ -27,23 +35,41 @@ export default function ThankYouPage() {
     if (typeof window !== 'undefined' && !alreadyTracked) {
       const transactionId = sessionStorage.getItem('orderCode') || Math.floor(100000 + Math.random() * 900000).toString();
 
+      // Get Enhanced Conversions data from sessionStorage
+      const ecPhone = sessionStorage.getItem('ec_phone') || '';
+      const ecAddress = sessionStorage.getItem('ec_address') || '';
+
       // Load gtag script
       const script = document.createElement('script');
       script.async = true;
       script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17763167612';
       document.head.appendChild(script);
 
-      script.onload = () => {
+      script.onload = async () => {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function() { window.dataLayer!.push(arguments); };
         window.gtag('js', new Date());
+
+        // Prepare Enhanced Conversions user_data with hashed values
+        const userData: Record<string, string> = {};
+        if (ecPhone) {
+          const normalizedPhone = ecPhone.replace(/[\s\-\(\)]/g, '');
+          userData.phone_number = await sha256(normalizedPhone);
+        }
+        if (ecAddress) {
+          userData.address = {
+            street: await sha256(ecAddress)
+          } as unknown as string;
+        }
+
         // Account 1
         window.gtag('config', 'AW-17763167612');
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17763167612/VOftCILDrswbEPzakZZC',
           'value': 1.0,
           'currency': 'EUR',
-          'transaction_id': transactionId
+          'transaction_id': transactionId,
+          'user_data': userData
         });
         // Account 2
         window.gtag('config', 'AW-17763228552');
@@ -51,10 +77,17 @@ export default function ThankYouPage() {
           'send_to': 'AW-17763228552/8AEICJSNuMwbEIi3lZZC',
           'value': 1.0,
           'currency': 'EUR',
-          'transaction_id': transactionId
+          'transaction_id': transactionId,
+          'user_data': userData
         });
         sessionStorage.setItem('conversionTracked', 'true');
-        console.log('✅ Google Ads conversion tracked on both accounts, transaction_id:', transactionId);
+
+        // Clean up EC data
+        sessionStorage.removeItem('ec_name');
+        sessionStorage.removeItem('ec_phone');
+        sessionStorage.removeItem('ec_address');
+
+        console.log('✅ Google Ads conversion tracked with Enhanced Conversions on both accounts, transaction_id:', transactionId);
       };
     }
   }, []);
