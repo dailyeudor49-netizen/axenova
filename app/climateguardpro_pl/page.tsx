@@ -135,7 +135,7 @@ export default function Home() {
       const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
       const tmfpValue = tmfpInput?.value || '';
 
-      const response = await fetch('https://offers.supertrendaffiliateprogram.com/forms/api/submit/', {
+      const response = await fetch('/api/submit-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -147,19 +147,23 @@ export default function Home() {
           phone: formState.phone,
           'street-address': formState.fullAddress,
           tmfp: tmfpValue,
+          useSubmitEndpoint: 'true',
         }).toString(),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (response.ok && result.success) {
         // Save form data for Enhanced Conversions
         sessionStorage.setItem('ec_name', formState.fullName.trim());
         sessionStorage.setItem('ec_phone', formState.phone.trim());
         sessionStorage.setItem('ec_address', formState.fullAddress.trim());
         window.location.href = '/ty-pl';
       } else {
+        console.error('Form submission failed:', result);
         setSubmitted(true);
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitted(true);
     }
   };

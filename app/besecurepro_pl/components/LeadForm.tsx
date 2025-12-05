@@ -49,7 +49,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
       const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
       const tmfpValue = tmfpInput?.value || '';
 
-      const response = await fetch('https://offers.supertrendaffiliateprogram.com/forms/api/submit/', {
+      const response = await fetch('/api/submit-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -61,10 +61,12 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
           phone: formData.phone,
           address: formData.address,
           tmfp: tmfpValue,
+          useSubmitEndpoint: 'true',
         }).toString(),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (response.ok && result.success) {
         if(typeof window !== 'undefined') {
           localStorage.setItem('lead_submitted_pl', 'true');
           // Save form data for Enhanced Conversions
@@ -74,10 +76,12 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
         }
         window.location.href = '/ty-pl';
       } else {
+        console.error('Form submission failed:', result);
         setIsLoading(false);
         alert('Wystąpił błąd. Spróbuj ponownie.');
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error);
       setIsLoading(false);
       alert('Wystąpił błąd. Spróbuj ponownie.');
     }

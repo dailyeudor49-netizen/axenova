@@ -104,23 +104,26 @@ export default function SuperHubPL() {
         if (value) params.append(param, value);
       });
 
-      const response = await fetch('https://offers.supertrendaffiliateprogram.com/forms/api/', {
+      const response = await fetch('/api/submit-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: params.toString()
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (response.ok && result.success) {
         // Save form data for Enhanced Conversions
         sessionStorage.setItem('ec_name', orderData.name.trim());
         sessionStorage.setItem('ec_phone', orderData.phone.trim());
         sessionStorage.setItem('ec_address', orderData.address.trim());
         window.location.href = '/ty-pl';
       } else {
+        console.error('Form submission failed:', result);
         alert('Błąd podczas wysyłania zamówienia. Spróbuj ponownie.');
         setIsSubmitting(false);
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error);
       alert('Błąd podczas wysyłania zamówienia. Spróbuj ponownie.');
       setIsSubmitting(false);
     }
