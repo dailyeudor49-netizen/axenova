@@ -270,7 +270,7 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
-        window.location.href = '/ty-airwave-sk';
+        window.location.href = '/ty-sk';
       } else {
         alert('Chyba pri odoslaní objednávky. Skúste to prosím znova.');
         setIsSubmitting(false);

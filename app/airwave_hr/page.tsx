@@ -270,7 +270,7 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
-        window.location.href = '/ty-airwave-hr';
+        window.location.href = '/ty-hr';
       } else {
         alert('Greška pri slanju narudžbe. Molimo pokušajte ponovno.');
         setIsSubmitting(false);

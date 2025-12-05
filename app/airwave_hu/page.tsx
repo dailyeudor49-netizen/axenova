@@ -270,7 +270,7 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
-        window.location.href = '/ty-airwave-hu';
+        window.location.href = '/ty-hu';
       } else {
         alert('Hiba a rendelés küldésekor. Kérjük, próbálja újra.');
         setIsSubmitting(false);

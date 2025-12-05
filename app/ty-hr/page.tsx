@@ -22,7 +22,7 @@ export default function ThankYouPage() {
       setOrderCode(newCode);
     }
 
-    // Google Ads Conversion Tracking
+    // Google Ads Conversion Tracking - Both Accounts
     const alreadyTracked = sessionStorage.getItem('conversionTracked');
     if (typeof window !== 'undefined' && !alreadyTracked) {
       const transactionId = sessionStorage.getItem('orderCode') || Math.floor(100000 + Math.random() * 900000).toString();
@@ -37,6 +37,7 @@ export default function ThankYouPage() {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function() { window.dataLayer!.push(arguments); };
         window.gtag('js', new Date());
+        // Account 1
         window.gtag('config', 'AW-17763167612');
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17763167612/FhzuCNHatswbEPzakZZC',
@@ -44,8 +45,16 @@ export default function ThankYouPage() {
           'currency': 'EUR',
           'transaction_id': transactionId
         });
+        // Account 2
+        window.gtag('config', 'AW-17763228552');
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17763228552/kzx9CKT2t8wbEIi3lZZC',
+          'value': 1.0,
+          'currency': 'EUR',
+          'transaction_id': transactionId
+        });
         sessionStorage.setItem('conversionTracked', 'true');
-        console.log('✅ Google Ads conversion tracked, transaction_id:', transactionId);
+        console.log('✅ Google Ads conversion tracked on both accounts, transaction_id:', transactionId);
       };
     }
   }, []);
