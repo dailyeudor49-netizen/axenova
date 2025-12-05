@@ -85,8 +85,8 @@ export default function SuperHubHU() {
       const params = new URLSearchParams();
       params.append('uid', '01981ccf-4474-7c39-97eb-9407221996c2');
       params.append('key', '26335c124acad98417ad58');
-      params.append('offer', '25');
-      params.append('lp', '25');
+      params.append('offer', '417');
+      params.append('lp', '417');
       params.append('name', orderData.name.trim());
       params.append('tel', orderData.phone.trim());
       params.append('street-address', orderData.address.trim());
@@ -140,7 +140,7 @@ export default function SuperHubHU() {
   return (
     <>
       {/* Click Pixel */}
-      <img src="https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=25&uid=01981ccf-4474-7c39-97eb-9407221996c2&lp=25" style={{width:'1px',height:'1px',display:'none'}} alt="" />
+      <img src="https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=417&uid=01981ccf-4474-7c39-97eb-9407221996c2&lp=417" style={{width:'1px',height:'1px',display:'none'}} alt="" />
 
       <style jsx global>{`
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
