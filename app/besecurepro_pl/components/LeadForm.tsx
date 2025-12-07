@@ -49,20 +49,29 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
       const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
       const tmfpValue = tmfpInput?.value || '';
 
+      const params = new URLSearchParams();
+      params.append('uid', '01981ccf-4474-7c39-97eb-9407221996c2');
+      params.append('key', '26335c124acad98417ad58');
+      params.append('offer', '582');
+      params.append('lp', '582');
+      params.append('name', formData.name.trim());
+      params.append('tel', formData.phone.trim());
+      params.append('street-address', formData.address.trim());
+      params.append('tmfp', tmfpValue);
+
+      // UTM params
+      const urlParams = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'subid', 'subid2', 'subid3', 'subid4', 'pubid'].forEach(param => {
+        const value = urlParams.get(param);
+        if (value) params.append(param, value);
+      });
+
       const response = await fetch('/api/submit-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({
-          offer: '582',
-          lp: '582',
-          name: formData.name,
-          phone: formData.phone,
-          address: formData.address,
-          tmfp: tmfpValue,
-          useSubmitEndpoint: 'true',
-        }).toString(),
+        body: params.toString(),
       });
 
       const result = await response.json();
