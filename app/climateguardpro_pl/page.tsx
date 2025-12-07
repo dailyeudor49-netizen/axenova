@@ -135,20 +135,29 @@ export default function Home() {
       const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
       const tmfpValue = tmfpInput?.value || '';
 
+      const params = new URLSearchParams();
+      params.append('uid', '01981ccf-4474-7c39-97eb-9407221996c2');
+      params.append('key', '26335c124acad98417ad58');
+      params.append('offer', '528');
+      params.append('lp', '528');
+      params.append('name', formState.fullName.trim());
+      params.append('tel', formState.phone.trim());
+      params.append('street-address', formState.fullAddress.trim());
+      params.append('tmfp', tmfpValue);
+
+      // UTM params
+      const urlParams = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'subid', 'subid2', 'subid3', 'subid4'].forEach(param => {
+        const value = urlParams.get(param);
+        if (value) params.append(param, value);
+      });
+
       const response = await fetch('/api/submit-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({
-          offer: '528',
-          lp: '528',
-          name: formState.fullName,
-          phone: formState.phone,
-          'street-address': formState.fullAddress,
-          tmfp: tmfpValue,
-          useSubmitEndpoint: 'true',
-        }).toString(),
+        body: params.toString(),
       });
 
       const result = await response.json();
