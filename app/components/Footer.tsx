@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isRobotCleanProX = pathname?.startsWith("/robotcleanprox");
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -96,6 +101,11 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-slate-800">
+          {isRobotCleanProX && (
+            <p className="text-center text-sm text-gray-400 mb-6">
+              Robot Clean Pro X è un marchio distribuito in esclusiva da Axenova Lab
+            </p>
+          )}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500">
               &copy; {currentYear} Axenova Lab Ltd. All rights reserved.
