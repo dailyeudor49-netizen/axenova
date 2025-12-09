@@ -209,7 +209,7 @@ export default function ThankYouPage() {
           <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}>Możesz poprosić o zwrot w ciągu 30 dni, jeśli nie jesteś zadowolony z produktu</div>
         </div>
 
-        <a href="/superhub_pl" style={{
+        <a href="/robotcleanprox_pl" style={{
           display: 'inline-block',
           background: 'linear-gradient(135deg, #FFB800 0%, #FF7A00 100%)',
           color: 'white',
