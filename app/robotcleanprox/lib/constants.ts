@@ -15,7 +15,7 @@ export const REVIEWS: Review[] = [
     verified: true,
     date: "2 giorni fa",
     hasImage: true,
-    imageUrl: "https://picsum.photos/100/100?random=1"
+    imageUrl: "/images/robotcleanprox imggif/recensioni/716UOMnH5CL.jpg"
   },
   {
     id: 2,
@@ -25,7 +25,8 @@ export const REVIEWS: Review[] = [
     text: "Arrivato in 24 ore. Ho pagato al corriere in contanti, comodissimo. Il robot è semplice da usare, basta premere un tasto.",
     verified: true,
     date: "1 settimana fa",
-    hasImage: false
+    hasImage: true,
+    imageUrl: "/images/robotcleanprox imggif/recensioni/71UbGcy+zOL.jpg"
   },
   {
     id: 3,
@@ -36,7 +37,7 @@ export const REVIEWS: Review[] = [
     verified: true,
     date: "3 giorni fa",
     hasImage: true,
-    imageUrl: "https://picsum.photos/100/100?random=3"
+    imageUrl: "/images/robotcleanprox imggif/recensioni/61H4YDTqFUL.jpg"
   },
   {
     id: 4,
@@ -46,7 +47,8 @@ export const REVIEWS: Review[] = [
     text: "Mia moglie è felicissima. Meno mal di schiena per lei. Assistenza gentile, mi hanno chiamato per confermare l'indirizzo.",
     verified: true,
     date: "Ieri",
-    hasImage: false
+    hasImage: true,
+    imageUrl: "/images/robotcleanprox imggif/recensioni/617ra1G4FvL.jpg"
   },
   {
     id: 5,
@@ -56,8 +58,7 @@ export const REVIEWS: Review[] = [
     text: "Ero scettica ma mi sono ricreduta. Aspira polvere fine che nemmeno vedevo. La batteria dura parecchio.",
     verified: true,
     date: "5 giorni fa",
-    hasImage: true,
-    imageUrl: "https://picsum.photos/100/100?random=5"
+    hasImage: false
   },
   {
     id: 6,
@@ -87,8 +88,7 @@ export const REVIEWS: Review[] = [
     text: "La base che si svuota da sola è una comodità assurda. Non tocchi nulla per settimane.",
     verified: true,
     date: "3 giorni fa",
-    hasImage: true,
-    imageUrl: "https://picsum.photos/100/100?random=8"
+    hasImage: false
   },
   {
     id: 9,

@@ -9,10 +9,15 @@ interface HeroProps {
 }
 
 const HERO_IMAGES = [
-  "https://picsum.photos/800/800?random=1",
-  "https://picsum.photos/800/800?random=10",
-  "https://picsum.photos/800/800?random=11",
-  "https://picsum.photos/800/800?random=12"
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/1.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/2.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/3.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/4.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/5.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/6.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/7.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/8.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/9.png",
 ];
 
 const Hero: React.FC<HeroProps> = ({ onScrollToForm }) => {

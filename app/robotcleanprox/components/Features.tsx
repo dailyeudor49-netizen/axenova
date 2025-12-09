@@ -12,14 +12,10 @@ const Features: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* Feature 1 - Suction Power (GIF Placeholder) */}
+          {/* Feature 1 - Suction Power (GIF) */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-red-500 transition-colors group">
              <div className="aspect-square w-full bg-gray-900 relative overflow-hidden">
-               {/* PLACEHOLDER FOR GIF: Show robot sucking up heavy debris */}
-               <img src="https://picsum.photos/600/600?random=24" alt="GIF Aspirazione Bulloni" className="w-full h-full object-cover opacity-80" />
-               <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-black/50 text-white px-3 py-1 rounded border border-white/50 text-xs font-bold tracking-widest uppercase">GIF: Aspira tutto</span>
-               </div>
+               <img src="/images/robotcleanprox imggif/GIF ASPIRA TUTTO.gif" alt="GIF Aspirazione Bulloni" className="w-full h-full object-cover" />
                <div className="absolute bottom-0 left-0 bg-red-600 text-white font-bold px-4 py-1 text-sm uppercase shadow-md">Motore Turbo</div>
             </div>
              <div className="p-5">
@@ -30,14 +26,10 @@ const Features: React.FC = () => {
             </div>
           </div>
 
-          {/* Feature 2 - Base Station (GIF Placeholder) */}
+          {/* Feature 2 - Base Station (GIF) */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-red-500 transition-colors group">
             <div className="aspect-square w-full bg-gray-900 relative overflow-hidden">
-               {/* PLACEHOLDER FOR GIF: Show base sucking dust out of robot */}
-               <img src="https://picsum.photos/600/600?random=20" alt="GIF Base Autosvuotante" className="w-full h-full object-cover opacity-80" />
-               <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-black/50 text-white px-3 py-1 rounded border border-white/50 text-xs font-bold tracking-widest uppercase">GIF: Svuotamento</span>
-               </div>
+               <img src="/images/robotcleanprox imggif/GIF Svuotamento.gif" alt="GIF Base Autosvuotante" className="w-full h-full object-cover" />
                <div className="absolute bottom-0 left-0 bg-red-600 text-white font-bold px-4 py-1 text-sm uppercase shadow-md">Base All-in-One</div>
             </div>
             <div className="p-5">
@@ -48,14 +40,10 @@ const Features: React.FC = () => {
             </div>
           </div>
 
-          {/* Feature 3 - Washing (GIF Placeholder) */}
+          {/* Feature 3 - Washing (GIF) */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-blue-500 transition-colors group">
              <div className="aspect-square w-full bg-gray-900 relative overflow-hidden">
-               {/* PLACEHOLDER FOR GIF: Show mops spinning and cleaning a coffee stain */}
-               <img src="https://picsum.photos/600/600?random=21" alt="GIF Lavaggio Macchie" className="w-full h-full object-cover opacity-80" />
-               <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-black/50 text-white px-3 py-1 rounded border border-white/50 text-xs font-bold tracking-widest uppercase">GIF: Toglie Macchie</span>
-               </div>
+               <img src="/images/robotcleanprox imggif/GIF Toglie Macchie.gif" alt="GIF Lavaggio Macchie" className="w-full h-full object-cover" />
                <div className="absolute bottom-0 left-0 bg-blue-600 text-white font-bold px-4 py-1 text-sm uppercase shadow-md">Lavaggio a Pressione</div>
             </div>
              <div className="p-5">
@@ -66,14 +54,10 @@ const Features: React.FC = () => {
             </div>
           </div>
 
-           {/* Feature 4 - AI Navigation (GIF Placeholder) */}
+           {/* Feature 4 - AI Navigation (Video) */}
            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-orange-500 transition-colors group">
              <div className="aspect-square w-full bg-gray-900 relative overflow-hidden">
-               {/* PLACEHOLDER FOR GIF: Robot avoiding a toy or shoe */}
-               <img src="https://picsum.photos/600/600?random=25" alt="GIF Ostacoli" className="w-full h-full object-cover opacity-80" />
-               <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-black/50 text-white px-3 py-1 rounded border border-white/50 text-xs font-bold tracking-widest uppercase">GIF: Evita Ostacoli</span>
-               </div>
+               <video src="/images/robotcleanprox imggif/GIF Evita Ostacoli.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
                <div className="absolute bottom-0 left-0 bg-orange-600 text-white font-bold px-4 py-1 text-sm uppercase shadow-md">Intelligenza Artificiale</div>
             </div>
              <div className="p-5">
@@ -84,14 +68,10 @@ const Features: React.FC = () => {
             </div>
           </div>
 
-          {/* Feature 5 - App Control */}
+          {/* Feature 5 - App Control (Video) */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-green-500 transition-colors group">
              <div className="aspect-square w-full bg-gray-900 relative overflow-hidden">
-               {/* PLACEHOLDER FOR GIF: App screen selecting a room */}
-               <img src="https://picsum.photos/600/600?random=22" alt="GIF App" className="w-full h-full object-cover opacity-80" />
-               <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-black/50 text-white px-3 py-1 rounded border border-white/50 text-xs font-bold tracking-widest uppercase">GIF: Controllo App</span>
-               </div>
+               <video src="/images/robotcleanprox imggif/GIF Controllo App.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
                <div className="absolute bottom-0 left-0 bg-green-600 text-white font-bold px-4 py-1 text-sm uppercase shadow-md">App & Voce</div>
             </div>
              <div className="p-5">
@@ -105,11 +85,7 @@ const Features: React.FC = () => {
           {/* Feature 6 - Battery 8 Hours */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-purple-500 transition-colors group">
              <div className="aspect-square w-full bg-gray-900 relative overflow-hidden">
-               {/* PLACEHOLDER FOR GIF: Robot going back to dock */}
-               <img src="https://picsum.photos/600/600?random=23" alt="GIF Ricarica" className="w-full h-full object-cover opacity-80" />
-               <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-black/50 text-white px-3 py-1 rounded border border-white/50 text-xs font-bold tracking-widest uppercase">GIF: Ricarica</span>
-               </div>
+               <img src="/images/robotcleanprox imggif/IMG Ricarica.png" alt="Ricarica Robot" className="w-full h-full object-cover" />
                <div className="absolute bottom-0 left-0 bg-purple-600 text-white font-bold px-4 py-1 text-sm uppercase shadow-md">8 Ore di Autonomia</div>
             </div>
              <div className="p-5">

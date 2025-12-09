@@ -36,9 +36,9 @@ const Bundle: React.FC = () => {
                 INCLUSO!
             </div>
 
-            {/* Visual placeholder for the box image provided */}
+            {/* Box content image */}
             <div className="mb-8 flex justify-center mt-6 md:mt-0">
-                 <img src="https://picsum.photos/600/300?grayscale" alt="Contenuto confezione" className="rounded-lg opacity-90 hover:opacity-100 transition w-full max-w-md" />
+                 <img src="/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/1.png" alt="Contenuto confezione" className="rounded-lg opacity-90 hover:opacity-100 transition w-full max-w-md" />
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">

@@ -14,9 +14,8 @@ const ProductDetails: React.FC = () => {
             {/* Left: Visual Representation */}
             <div className="w-full md:w-1/2 relative px-4 md:px-0">
                  <div className="absolute inset-0 md:-inset-4 bg-green-100 rounded-full blur-xl opacity-50"></div>
-                 {/* PLACEHOLDER: Image showing the robot in the base or mapping the house */}
                  <img
-                    src="https://picsum.photos/600/600?random=31"
+                    src="/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/9.png"
                     alt="Robot Clean Pro X nella base"
                     className="relative rounded-2xl shadow-xl border-4 border-white z-10 w-full"
                 />

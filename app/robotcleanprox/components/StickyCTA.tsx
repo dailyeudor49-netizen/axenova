@@ -17,13 +17,14 @@ const StickyCTA: React.FC<StickyCTAProps> = ({ onScrollToForm, isVisible }) => {
       }`}
     >
       <div className="max-w-4xl mx-auto px-4 py-2 md:py-3 flex justify-between items-center">
-        <div className="flex flex-col relative">
-          {/* Static badge */}
-          <div className="absolute -top-2 right-0 translate-x-1/2 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">
-              -50%
+        <div className="flex items-center gap-2">
+          <div className="flex flex-col">
+            <span className="text-[10px] md:text-xs text-gray-400 line-through">Listino €{PRICE_LIST}</span>
+            <span className="text-xl md:text-2xl font-black text-red-600 leading-none">€{PRICE_PROMO.toString().replace('.', ',')}</span>
           </div>
-          <span className="text-[10px] md:text-xs text-gray-400 line-through">Listino €{PRICE_LIST}</span>
-          <span className="text-xl md:text-2xl font-black text-red-600 leading-none">€{PRICE_PROMO.toString().replace('.', ',')}</span>
+          <div className="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">
+            -50%
+          </div>
         </div>
         <button
           onClick={onScrollToForm}
