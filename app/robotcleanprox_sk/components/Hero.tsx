@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Truck, CheckCircle, ShieldCheck, ChevronLeft, ChevronRight, Award, Smartphone, Trash2, BatteryCharging, Wind, Smile, Star } from 'lucide-react';
 import { PRICE_PROMO, PRICE_LIST, CURRENCY } from '../lib/constants';
 
@@ -9,19 +10,35 @@ interface HeroProps {
 }
 
 const HERO_IMAGES = [
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/1.png",
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/2.png",
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/3.png",
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/4.png",
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/5.png",
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/6.png",
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/7.png",
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/8.png",
-  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/9.png",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/1.webp",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/2.webp",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/3.webp",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/4.webp",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/5.webp",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/6.webp",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/7.webp",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/8.webp",
+  "/images/robotcleanprox imggif/ROBOTCLEANPROX IMG LANDING/9.webp",
 ];
 
 const Hero: React.FC<HeroProps> = ({ onScrollToForm }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(HERO_IMAGES.length).fill(false));
+
+  // Preload all images on mount
+  useEffect(() => {
+    HERO_IMAGES.forEach((src, index) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => {
+        setImagesLoaded(prev => {
+          const newState = [...prev];
+          newState[index] = true;
+          return newState;
+        });
+      };
+    });
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === HERO_IMAGES.length - 1 ? 0 : prev + 1));
@@ -61,10 +78,13 @@ const Hero: React.FC<HeroProps> = ({ onScrollToForm }) => {
              <span className="text-xs font-bold text-gray-800">Best Seller 2025</span>
           </div>
 
-          <img
+          <Image
             src={HERO_IMAGES[currentSlide]}
             alt={`Robotický vysávač foto ${currentSlide + 1}`}
-            className="w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 512px"
+            className="object-cover"
+            priority={currentSlide === 0}
           />
 
           <button
@@ -142,19 +162,19 @@ const Hero: React.FC<HeroProps> = ({ onScrollToForm }) => {
         </div>
 
         {/* Price Display */}
-        <div className="flex flex-col items-center justify-center mb-6 mt-12 relative">
+        <div className="flex flex-col items-center justify-center mb-6 mt-16 md:mt-12 relative">
             {/* -50% Bubble Badge */}
-            <div className="absolute -top-10 right-4 md:right-24 bg-red-600 text-white w-16 h-16 md:w-20 md:h-20 flex flex-col items-center justify-center rounded-full shadow-xl z-10 rotate-12 border-4 border-white">
-                <span className="text-xl md:text-2xl font-black leading-none">-50%</span>
-                <span className="text-[8px] md:text-[10px] font-bold uppercase">Zľava</span>
+            <div className="absolute -top-14 md:-top-10 right-0 md:right-24 bg-red-600 text-white w-14 h-14 md:w-20 md:h-20 flex flex-col items-center justify-center rounded-full shadow-xl z-10 rotate-12 border-4 border-white">
+                <span className="text-lg md:text-2xl font-black leading-none">-50%</span>
+                <span className="text-[7px] md:text-[10px] font-bold uppercase">Zľava</span>
             </div>
 
-            <div className="text-sm font-bold text-red-600 uppercase tracking-wider bg-red-100 px-3 py-1 rounded-full mb-2">
+            <div className="text-xs md:text-sm font-bold text-red-600 uppercase tracking-wider bg-red-100 px-3 py-1 rounded-full mb-2">
                 Časovo Obmedzená Ponuka
             </div>
-            <div className="flex items-end gap-4">
-                <span className="text-2xl text-gray-400 line-through font-medium mb-2">{CURRENCY}{PRICE_LIST}</span>
-                <span className="text-6xl font-black text-gray-900 tracking-tighter">
+            <div className="flex items-end gap-2 md:gap-4">
+                <span className="text-xl md:text-2xl text-gray-400 line-through font-medium mb-1 md:mb-2">{CURRENCY}{PRICE_LIST}</span>
+                <span className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter">
                     {CURRENCY}{PRICE_PROMO}
                 </span>
             </div>
