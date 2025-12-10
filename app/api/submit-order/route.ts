@@ -5,8 +5,22 @@ const NETWORK_API_SUBMIT_URL = 'https://offers.supertrendaffiliateprogram.com/fo
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.text();
-    const params = new URLSearchParams(body);
+    const contentType = request.headers.get('content-type') || '';
+    let params: URLSearchParams;
+
+    // Handle both JSON and form-urlencoded requests
+    if (contentType.includes('application/json')) {
+      const jsonBody = await request.json();
+      params = new URLSearchParams();
+      for (const [key, value] of Object.entries(jsonBody)) {
+        if (value !== null && value !== undefined) {
+          params.append(key, String(value));
+        }
+      }
+    } else {
+      const body = await request.text();
+      params = new URLSearchParams(body);
+    }
 
     // Determine which endpoint to use based on offer type
     // Some offers use /forms/api/, others use /forms/api/submit/

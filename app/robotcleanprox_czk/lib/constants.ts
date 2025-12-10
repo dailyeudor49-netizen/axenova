@@ -33,8 +33,7 @@ export const REVIEWS: Review[] = [
     text: "Doručení za 24 hodin. Zaplatil jsem kurýrovi hotově, velmi pohodlné. Robot je jednoduchý na ovládání, stačí zmáčknout tlačítko.",
     verified: true,
     date: "před týdnem",
-    hasImage: true,
-    imageUrl: "/images/robotcleanprox imggif/recensioni/71UbGcy+zOL.jpg"
+    hasImage: false
   },
   {
     id: 3,

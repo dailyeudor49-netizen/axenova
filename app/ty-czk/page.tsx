@@ -214,7 +214,7 @@ export default function ThankYouPage() {
           marginBottom: '2rem'
         }}>
           <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>Potřebujete pomoc nebo chcete vrátit zboží?</div>
-          <a href="mailto:info@ionizi.com" style={{ color: '#FF8C00', fontWeight: 600, textDecoration: 'none', fontSize: '0.95rem' }}>info@ionizi.com</a>
+          <a href="mailto:info@axenovalab.com" style={{ color: '#FF8C00', fontWeight: 600, textDecoration: 'none', fontSize: '0.95rem' }}>info@axenovalab.com</a>
           <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}>Můžete požádat o vrácení do 30 dnů, pokud nejste spokojeni s produktem</div>
         </div>
 

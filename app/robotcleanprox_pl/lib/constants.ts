@@ -33,8 +33,7 @@ export const REVIEWS: Review[] = [
     text: "Dostawa w 24 godziny. Zapłaciłem kurierowi gotówką, bardzo wygodnie. Robot jest prosty w obsłudze, wystarczy nacisnąć przycisk.",
     verified: true,
     date: "tydzień temu",
-    hasImage: true,
-    imageUrl: "/images/robotcleanprox imggif/recensioni/71UbGcy+zOL.jpg"
+    hasImage: false
   },
   {
     id: 3,

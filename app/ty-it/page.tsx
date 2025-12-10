@@ -127,7 +127,7 @@ export default function ThankYouPage() {
           marginBottom: '2rem'
         }}>
           <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>Hai bisogno di assistenza o vuoi richiedere un reso?</div>
-          <a href="mailto:info@ionizi.com" style={{ color: '#FF8C00', fontWeight: 600, textDecoration: 'none', fontSize: '0.95rem' }}>info@ionizi.com</a>
+          <a href="mailto:info@axenovalab.com" style={{ color: '#FF8C00', fontWeight: 600, textDecoration: 'none', fontSize: '0.95rem' }}>info@axenovalab.com</a>
           <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}>Puoi richiedere il reso entro 30 giorni se il prodotto non ti soddisfa</div>
         </div>
 
