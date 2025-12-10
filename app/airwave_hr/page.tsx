@@ -275,6 +275,7 @@ export default function LandingPage() {
         sessionStorage.setItem('ec_name', orderData.name.trim());
         sessionStorage.setItem('ec_phone', orderData.phone.trim());
         sessionStorage.setItem('ec_address', orderData.address.trim());
+        sessionStorage.setItem('ec_value', '69.99');
         window.location.href = '/ty-hr';
       } else {
         console.error('Form submission failed:', result);

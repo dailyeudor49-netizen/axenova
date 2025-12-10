@@ -116,6 +116,7 @@ export default function SuperHubPL() {
         sessionStorage.setItem('ec_name', orderData.name.trim());
         sessionStorage.setItem('ec_phone', orderData.phone.trim());
         sessionStorage.setItem('ec_address', orderData.address.trim());
+        sessionStorage.setItem('ec_value', '209');
         window.location.href = '/ty-pl';
       } else {
         console.error('Form submission failed:', result);

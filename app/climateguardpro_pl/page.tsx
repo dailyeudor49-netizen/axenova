@@ -166,6 +166,7 @@ export default function Home() {
         sessionStorage.setItem('ec_name', formState.fullName.trim());
         sessionStorage.setItem('ec_phone', formState.phone.trim());
         sessionStorage.setItem('ec_address', formState.fullAddress.trim());
+        sessionStorage.setItem('ec_value', '299');
         window.location.href = '/ty-pl';
       } else {
         console.error('Form submission failed:', result);

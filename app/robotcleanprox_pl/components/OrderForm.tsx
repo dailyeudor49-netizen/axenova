@@ -111,13 +111,10 @@ const OrderForm: React.FC = () => {
 
       if (response.ok) {
         // Store data for Enhanced Conversions
-        sessionStorage.setItem('orderData', JSON.stringify({
-          name: formData.fullName,
-          phone: formData.phone,
-          address: formData.fullAddress,
-          value: PRICE_PROMO,
-          currency: 'PLN'
-        }));
+        sessionStorage.setItem('ec_name', formData.fullName.trim());
+        sessionStorage.setItem('ec_phone', formData.phone.trim());
+        sessionStorage.setItem('ec_address', formData.fullAddress.trim());
+        sessionStorage.setItem('ec_value', PRICE_PROMO.replace(',', '.').replace(/\s/g, ''));
 
         router.push(THANK_YOU_PAGE);
       } else {

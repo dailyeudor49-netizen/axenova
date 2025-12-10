@@ -39,6 +39,7 @@ export default function ThankYouPage() {
       const ecName = sessionStorage.getItem('ec_name') || '';
       const ecPhone = sessionStorage.getItem('ec_phone') || '';
       const ecAddress = sessionStorage.getItem('ec_address') || '';
+      const ecValue = parseFloat(sessionStorage.getItem('ec_value') || '1.0');
 
       // Load gtag script
       const script = document.createElement('script');
@@ -68,7 +69,7 @@ export default function ThankYouPage() {
         window.gtag('config', 'AW-17763167612');
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17763167612/ta1KCI39tMwbEPzakZZC',
-          'value': 1.0,
+          'value': ecValue,
           'currency': 'PLN',
           'transaction_id': transactionId,
           'user_data': userData
@@ -77,7 +78,7 @@ export default function ThankYouPage() {
         window.gtag('config', 'AW-17761287196');
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17761287196/B2roCOCXuMwbEJz4npVC',
-          'value': 1.0,
+          'value': ecValue,
           'currency': 'PLN',
           'transaction_id': transactionId,
           'user_data': userData
@@ -88,6 +89,7 @@ export default function ThankYouPage() {
         sessionStorage.removeItem('ec_name');
         sessionStorage.removeItem('ec_phone');
         sessionStorage.removeItem('ec_address');
+        sessionStorage.removeItem('ec_value');
 
         console.log('✅ Google Ads conversion tracked with Enhanced Conversions on both accounts, transaction_id:', transactionId);
       };

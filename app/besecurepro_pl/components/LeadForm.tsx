@@ -82,6 +82,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
           sessionStorage.setItem('ec_name', formData.name.trim());
           sessionStorage.setItem('ec_phone', formData.phone.trim());
           sessionStorage.setItem('ec_address', formData.address.trim());
+          sessionStorage.setItem('ec_value', '429');
         }
         window.location.href = '/ty-pl';
       } else {

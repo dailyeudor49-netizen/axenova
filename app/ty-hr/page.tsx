@@ -38,6 +38,7 @@ export default function ThankYouPage() {
       // Get Enhanced Conversions data from sessionStorage
       const ecPhone = sessionStorage.getItem('ec_phone') || '';
       const ecAddress = sessionStorage.getItem('ec_address') || '';
+      const ecValue = parseFloat(sessionStorage.getItem('ec_value') || '1.0');
 
       // Load gtag script
       const script = document.createElement('script');
@@ -66,7 +67,7 @@ export default function ThankYouPage() {
         window.gtag('config', 'AW-17763167612');
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17763167612/FhzuCNHatswbEPzakZZC',
-          'value': 1.0,
+          'value': ecValue,
           'currency': 'EUR',
           'transaction_id': transactionId,
           'user_data': userData
@@ -75,7 +76,7 @@ export default function ThankYouPage() {
         window.gtag('config', 'AW-17763228552');
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17763228552/kzx9CKT2t8wbEIi3lZZC',
-          'value': 1.0,
+          'value': ecValue,
           'currency': 'EUR',
           'transaction_id': transactionId,
           'user_data': userData
@@ -86,6 +87,7 @@ export default function ThankYouPage() {
         sessionStorage.removeItem('ec_name');
         sessionStorage.removeItem('ec_phone');
         sessionStorage.removeItem('ec_address');
+        sessionStorage.removeItem('ec_value');
 
         console.log('✅ Google Ads conversion tracked with Enhanced Conversions on both accounts, transaction_id:', transactionId);
       };
