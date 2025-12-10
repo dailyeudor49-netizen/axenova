@@ -13,6 +13,13 @@ import ProductDetails from './components/ProductDetails';
 import StepsToOrder from './components/StepsToOrder';
 import { PRODUCT_NAME } from './lib/constants';
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  }
+}
+
 export default function RobotCleanProXPage() {
   const [showStickyCTA, setShowStickyCTA] = useState(false);
 
@@ -22,6 +29,24 @@ export default function RobotCleanProXPage() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Google Ads Pageview Tracking
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17763167612';
+      document.head.appendChild(script);
+
+      script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer!.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-17763167612');
+        window.gtag('config', 'AW-17761287196');
+      };
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
