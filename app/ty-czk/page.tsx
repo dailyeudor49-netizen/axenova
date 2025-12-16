@@ -32,6 +32,7 @@ export default function ThankYouPage() {
 
     // Google Ads Conversion Tracking - Both Accounts
     const alreadyTracked = sessionStorage.getItem('conversionTracked');
+    console.log('[TY-CZK] conversionTracked:', alreadyTracked);
     if (typeof window !== 'undefined' && !alreadyTracked) {
       const transactionId = sessionStorage.getItem('orderCode') || Math.floor(100000 + Math.random() * 900000).toString();
 
@@ -39,6 +40,7 @@ export default function ThankYouPage() {
       const ecPhone = sessionStorage.getItem('ec_phone') || '';
       const ecAddress = sessionStorage.getItem('ec_address') || '';
       const ecValue = parseFloat(sessionStorage.getItem('ec_value') || '1.0');
+      console.log('[TY-CZK] EC Data - phone:', ecPhone, 'address:', ecAddress, 'value:', ecValue);
 
       // Load gtag script
       const script = document.createElement('script');
